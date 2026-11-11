@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#34beed">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Mando · Fiesta en el Salón</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/mando.css">
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+</head>
+<body>
+  <!-- 1. Perfil -->
+  <section id="s-profile" class="scr on">
+    <div class="card">
+      <div class="brand">🎉 Fiesta en el Salón</div>
+      <canvas id="preview" width="240" height="240"></canvas>
+      <label class="fld">Código de sala
+        <input id="f-code" maxlength="4" autocomplete="off" autocapitalize="characters" placeholder="ABCD">
+      </label>
+      <label class="fld">Tu nombre
+        <input id="f-name" maxlength="12" autocomplete="off" placeholder="Tu nombre">
+      </label>
+      <div class="swatches" id="f-colors"></div>
+      <div class="stepper"><button data-k="eyes" data-d="-1">◀</button><span>Ojos: <b id="f-eyes"></b></span><button data-k="eyes" data-d="1">▶</button></div>
+      <div class="stepper"><button data-k="mouth" data-d="-1">◀</button><span>Boca: <b id="f-mouth"></b></span><button data-k="mouth" data-d="1">▶</button></div>
+      <button class="go" id="f-go">¡Entrar!</button>
+      <div class="sig">HECHO POR @BYALVARO__</div>
+    </div>
+  </section>
+
+  <!-- 2. Conectando / mensajes -->
+  <section id="s-msg" class="scr">
+    <div class="card center">
+      <div class="big" id="m-ico">⏳</div>
+      <div id="m-text">Conectando…</div>
+      <button class="go small" id="m-retry" hidden>Reintentar</button>
+      <button class="link" id="m-back" hidden>Cambiar de sala o perfil</button>
+    </div>
+  </section>
+
+  <!-- 3. Mando -->
+  <section id="s-pad" class="scr">
+    <header id="pad-top">
+      <canvas id="pad-face" width="96" height="96"></canvas>
+      <div class="pad-info">
+        <div id="pad-name"></div>
+        <div id="pad-msg"></div>
+      </div>
+      <button id="pad-edit" title="Editar">✏️</button>
+    </header>
+    <div id="pad">
+      <div id="stick-zone">
+        <div id="stick-hint">Arrastra aquí para moverte</div>
+        <div id="stick-base"><div id="stick-knob"></div></div>
+      </div>
+      <div id="btn-zone">
+        <button id="btn-b" class="pbtn b"><span>B</span><small></small></button>
+        <button id="btn-a" class="pbtn a"><span>A</span><small></small></button>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="js/mando.js"></script>
+</body>
+</html>

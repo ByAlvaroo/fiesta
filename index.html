@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fiesta en el Salón · Party game 3D</title>
+  <meta name="author" content="@byalvaro__">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎉</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Conexión con los móviles -->
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+  <!-- Motor 3D -->
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
+  </script>
+</head>
+<body>
+  <div id="sky"></div>
+  <canvas id="c"></canvas>
+
+  <div id="ui">
+    <section id="scr-menu" class="screen"></section>
+    <section id="scr-lobby" class="screen"></section>
+    <section id="scr-pick" class="screen"></section>
+    <section id="scr-roulette" class="screen"></section>
+    <section id="scr-intro" class="screen"></section>
+    <section id="scr-results" class="screen"></section>
+    <section id="scr-podium" class="screen"></section>
+
+    <div id="hud">
+      <div id="hud-game"></div>
+      <div id="hud-content"></div>
+    </div>
+    <div id="announce"></div>
+    <div id="toasts"></div>
+    <div id="pause"></div>
+    <div id="modal"><div class="modal-card" id="modal-card"></div></div>
+  </div>
+
+  <div id="loading">
+    <div class="load-logo">🎉</div>
+    <div class="load-text">Cargando la fiesta…</div>
+    <noscript>Necesitas activar JavaScript.</noscript>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+  <script>
+    // Si el motor 3D no carga (sin internet), avisar
+    setTimeout(function () {
+      var l = document.getElementById('loading');
+      if (l && !l.classList.contains('hide')) l.querySelector('.load-text').textContent = 'No se ha podido cargar el motor 3D. Revisa la conexión a internet y recarga.';
+    }, 15000);
+  </script>
+</body>
+</html>
